@@ -14,44 +14,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1763037471
+  lastShownTimestamp: 1765451578
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1763037471
+  checkedLastUpdateTimestamp: 1765451578
   lastQOTDResponse:
-    questionId: 241
-    questionText: 'What is the result of this code:
+    questionId: 250
+    questionText: 'Does this code have an error?
 
-      <p>int money = 2000000000;
-      // $2 billion</p>
+      <p>int myNewX = 10;</p>
 
-      <p>money += 1000000000; // Adding $1 billion</p>'
-    answerA: money == 3000000000
-    answerB: money == -1294967296
-    answerC: money == 0
+      <p>transform.position.x
+      = myNewX;</p>'
+    answerA: Yes
+    answerB: No
+    answerC: Only if GameObject does not have a Transform component
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1763037471
+  lastQotdTimestamp: 1765451578
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/cmBlackFriday2025.png
-    topText: Get my BLACK FRIDAY Bundle! Available now with Live Chat!
-    topLink: blackfriday
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/unityCodeMonkeyBundleDec2025.png
+    topText: I made a Bundle alongside the Asset Store! Awesome deal on new-never-discounted
+      tools!
+    topLink: cmbundleassetstore
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1763037471
+  lastDynamicHeaderTimestamp: 1765451578
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1763037471
+  websiteLatestMessageTimestamp: 1765451578
   websiteLatestVideos:
     videos:
-    - youTubeId: zbGWwfEhTzc
-      title: I wrote 3000 lines of code in 48 HOURS!
-    - youTubeId: HSLVMh25YWo
-      title: BLACK FRIDAY Bundle Available NOW! Learn and Play!
-    - youTubeId: Gl0leX7gqVA
-      title: Dispelling the Unity looks bad MYTH!
-    - youTubeId: 0zljaBBiOXo
-      title: Unity turns 20! Get FREE Assets and Make Games!
-  websiteLatestVideosTimestamp: 1763037471
+    - youTubeId: _qO7nkwn71M
+      title: Unity asked me to do something very SPECIAL!
+    - youTubeId: j7mZEZzNq9o
+      title: TOP 10 NEW Games, Made with Unity! (NOVEMBER 2025)
+    - youTubeId: wAI7TNtW7xM
+      title: How MUCH is your Time WORTH?
+    - youTubeId: c4tyM-o2uJQ
+      title: Make your Console 10X BETTER with this Tool! (50% OFF!)
+  websiteLatestVideosTimestamp: 1765451578

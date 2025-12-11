@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    
+    public class OnSelectedCounterChangedEventArgs : EventArgs
+    {
+        public ClearCounter selectedCounter;
+    }
+
     [SerializeField]
     private float moveSpeed = 7f;
 
@@ -14,10 +23,33 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameInput gameInput;
+
+    private ClearCounter selectedCounter;
+
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Debug.LogError("There is more than one Player instance");
+        }
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        gameInput.OnInteractAction += GameInputOnInteractAction;
+    }
     private void Update()
     {
         HandleMovement();
         HandleInteractions();
+    }
+
+
+    private void GameInputOnInteractAction(object sender, EventArgs e)
+    {
+        if (selectedCounter != null)
+            selectedCounter.Interact();
     }
 
     public bool IsWalking()
@@ -41,14 +73,14 @@ public class Player : MonoBehaviour
         {
             if(raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
-                clearCounter.Interact();
+                if(clearCounter != selectedCounter)
+                    SetSelectedCounter(clearCounter);
             }
+            else
+                SetSelectedCounter(null);
         }
         else
-        {
-            Debug.Log("No hit");
-        }
-        
+            SetSelectedCounter(null);
     }
 
     private void HandleMovement()
@@ -92,6 +124,16 @@ public class Player : MonoBehaviour
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotatetionSpeed);
 
         Debug.Log(inputVector);
+    }
+
+    private void SetSelectedCounter(ClearCounter selectedCounter)
+    {
+        this.selectedCounter = selectedCounter;
+
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
+        {
+            selectedCounter = selectedCounter
+        });
     }
 
 }
