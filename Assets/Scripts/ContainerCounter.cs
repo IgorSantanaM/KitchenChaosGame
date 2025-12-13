@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class ClearCounter : BaseCounter
+public class ContainerCounter : BaseCounter
 {
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
-    private KitchenObject kitchenObject;
 
     public override void Interact(Player player)
     {
@@ -17,5 +16,5 @@ public class ClearCounter : BaseCounter
         {
             kitchenObject.SetKitchenObjectParent(player);
         }
-    }  
+    }
 }
