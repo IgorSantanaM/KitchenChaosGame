@@ -3,19 +3,28 @@ using UnityEngine;
 public class ClearCounter : BaseCounter
 {
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
-    private KitchenObject kitchenObject;
 
     public override void Interact(Player player)
     {
-        if (kitchenObject == null)
+        if (!HasKitchenObject())
         {
-            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
-            kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
-            kitchenObject.SetKitchenObjectParent(this);
+            if(player.HasKitchenObject())
+            {
+                KitchenObject kitchenObject = player.GetKitchenObject();
+                kitchenObject.SetKitchenObjectParent(this);
+            }
         }
         else
         {
-            kitchenObject.SetKitchenObjectParent(player);
+            if(!player.HasKitchenObject())
+            {
+                KitchenObject kitchenObject = GetKitchenObject();
+                kitchenObject.SetKitchenObjectParent(player);
+            }
+            else
+            {
+
+            }
         }
     }  
 }

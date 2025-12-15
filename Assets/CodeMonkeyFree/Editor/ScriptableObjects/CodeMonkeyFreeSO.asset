@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1765558460
+  lastShownTimestamp: 1765797136
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1765558460
+  checkedLastUpdateTimestamp: 1765797136
   lastQOTDResponse:
     questionId: 251
     questionText: What is the difference between Application.dataPath and Application.persistentDataPath
@@ -30,7 +30,7 @@ MonoBehaviour:
       is on the User Data
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1765558460
+  lastQotdTimestamp: 1765797136
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/unityCodeMonkeyBundleDec2025.png
     topText: I made a Bundle alongside the Asset Store! Awesome deal on new-never-discounted
@@ -38,19 +38,19 @@ MonoBehaviour:
     topLink: cmbundleassetstore
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1765558460
+  lastDynamicHeaderTimestamp: 1765797136
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1765558460
+  websiteLatestMessageTimestamp: 1765797136
   websiteLatestVideos:
     videos:
+    - youTubeId: OwxThbyAmOw
+      title: TOP 10 FREE NEW Assets DECEMBER 2025!
+    - youTubeId: EB0WQA6qjbI
+      title: Unity 6.3 LTS is RELEASED! (This is the one you should use!)
+    - youTubeId: Lg0ARMsa2ZU
+      title: Thanks to YOU I won TWO awards!
     - youTubeId: _qO7nkwn71M
       title: Unity asked me to do something very SPECIAL!
-    - youTubeId: j7mZEZzNq9o
-      title: TOP 10 NEW Games, Made with Unity! (NOVEMBER 2025)
-    - youTubeId: wAI7TNtW7xM
-      title: How MUCH is your Time WORTH?
-    - youTubeId: c4tyM-o2uJQ
-      title: Make your Console 10X BETTER with this Tool! (50% OFF!)
-  websiteLatestVideosTimestamp: 1765558460
+  websiteLatestVideosTimestamp: 1765797136
