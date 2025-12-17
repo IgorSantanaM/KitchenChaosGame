@@ -130,8 +130,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         float rotatetionSpeed = 10f;
 
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotatetionSpeed);
-
-        Debug.Log(inputVector);
     }
 
     private void SetSelectedCounter(BaseCounter baseCounter)
