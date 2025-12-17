@@ -1,7 +1,5 @@
 using System;
-using UnityEditor.U2D;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class StoveCounter : BaseCounter, IHasProgress
 {
@@ -111,6 +109,18 @@ public class StoveCounter : BaseCounter, IHasProgress
                 currentState = State.Idle;
                 OnStateChanged?.Invoke(currentState);
                 OnProgressChanged?.Invoke(0f);
+            }
+            else
+            {
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                {
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                        GetKitchenObject().DestroySelf();
+                    currentState = State.Idle;
+                    OnStateChanged?.Invoke(currentState);
+                    OnProgressChanged?.Invoke(0f);
+                }
+
             }
         }
     }
