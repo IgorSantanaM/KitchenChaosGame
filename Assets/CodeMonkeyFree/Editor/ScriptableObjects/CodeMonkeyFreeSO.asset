@@ -14,31 +14,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1766063035
+  lastShownTimestamp: 1766149459
   lastUpdateResponse:
     version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1766063035
+  checkedLastUpdateTimestamp: 1766149459
   lastQOTDResponse:
-    questionId: 252
-    questionText: What is the significance of January 1st, 1970?
-    answerA: Skyrim Release Date on the Magnavox Odyssey
-    answerB: Start of Unix Time
-    answerC: 
+    questionId: 253
+    questionText: Which of these are affected when you modify Time.timeScale?
+    answerA: Time.deltaTime, Time.realtimeSinceStartup, Time.unscaledDeltaTime, Time.timeSinceLevelLoad,
+      Time.fixedTime
+    answerB: Time.deltaTime, Time.realtimeSinceStartup, Time.timeSinceLevelLoad,
+      Time.fixedTime
+    answerC: Time.deltaTime, Time.timeSinceLevelLoad, Time.fixedTime
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1766063035
+  lastQotdTimestamp: 1766149459
   lastDynamicHeaderResponse:
     topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/problemSolvingCourse_BonusesEndingMonth.png
     topText: The Special Bonuses on my Problem Solving course are ending this month!
     topLink: problemsolvingcourse
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
-  lastDynamicHeaderTimestamp: 1766063035
+  lastDynamicHeaderTimestamp: 1766149459
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1766063035
+  websiteLatestMessageTimestamp: 1766149459
   websiteLatestVideos:
     videos:
     - youTubeId: 4n0flLF7FB0
@@ -49,4 +51,4 @@ MonoBehaviour:
       title: TOP 10 FREE NEW Assets DECEMBER 2025!
     - youTubeId: EB0WQA6qjbI
       title: Unity 6.3 LTS is RELEASED! (This is the one you should use!)
-  websiteLatestVideosTimestamp: 1766063035
+  websiteLatestVideosTimestamp: 1766149459
