@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DeliveryManagerUI : MonoBehaviour
 {
-
     [SerializeField] private Transform container;
     [SerializeField] private Transform recipeTemplate;
 
