@@ -45,8 +45,6 @@ public class DeliveryManager : MonoBehaviour
         }
 
     }
-
-
     public void DeliverRecipe(PlateKitchenObject plateKitchenObjectplate)
     {
         for (int i = 0; i < waitingRecipeSOList.Count; i++)
