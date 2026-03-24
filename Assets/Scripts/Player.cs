@@ -1,9 +1,12 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IKitchenObjectParent
+public class Player : NetworkBehaviour, IKitchenObjectParent
 {
-    public static Player Instance { get; private set; }
+    // public static Player Instance { get; private set; }
+
+
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public event EventHandler OnPickedSomething;
 
@@ -22,24 +25,18 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     [SerializeField] private LayerMask countersLayerMask;
 
-    [SerializeField]
-    private GameInput gameInput;
-
     private BaseCounter selectedCounter;
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Debug.LogError("There is more than one Player instance");
-        }
-        Instance = this;
+        // Instance = this;
     }
 
     private void Start()
     {
-        gameInput.OnInteractAction += GameInputOnInteractAction;
-        gameInput.OnInteractAlternateAction += GameInputOnInteractAlternateAction;
+        GameInput.Instance.OnInteractAction += GameInputOnInteractAction;
+        GameInput.Instance.OnInteractAlternateAction += GameInputOnInteractAlternateAction;
+
     }
 
     private void GameInputOnInteractAlternateAction(object sender, EventArgs e)
@@ -52,6 +49,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void Update()
     {
+        if (!IsOwner)
+            return;
+        // Server authority (RPC)
+        //HandleMovementServerAuth();
+
         HandleMovement();
         HandleInteractions();
     }
@@ -72,7 +74,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleInteractions()
     {
-        var inputVector = gameInput.GetMovementVectorNormalized();
+        var inputVector = GameInput.Instance.GetMovementVectorNormalized();
 
         Vector3 moveDir = new(inputVector.x, 0f, inputVector.y);
 
@@ -96,9 +98,55 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             SetSelectedCounter(null);
     }
 
+    private void HandleMovementServerAuth()
+    {
+        Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
+        HandleMovementServerRpc(inputVector);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void HandleMovementServerRpc(Vector2 inputVector)
+    {
+        Vector3 moveDir = new(inputVector.x, 0f, inputVector.y);
+
+        float moveDistance = moveSpeed * Time.deltaTime;
+        float playerRadius = .7f;
+        float playerHeight = 2f;
+
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+
+        if (!canMove)
+        {
+            Vector3 moveDirX = new Vector3(moveDir.x, 0f, 0f).normalized;
+            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+
+            if (canMove)
+                moveDir = moveDirX;
+
+            else
+            {
+                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
+                canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+
+                if (canMove)
+                    moveDir = moveDirZ;
+
+                else
+                    moveDir = Vector3.zero;
+            }
+        }
+        if (canMove)
+            transform.position += moveDir * moveDistance;
+
+        isWalking = moveDir != Vector3.zero;
+        float rotatetionSpeed = 10f;
+
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotatetionSpeed);
+    }
+
     private void HandleMovement()
     {
-        var inputVector = gameInput.GetMovementVectorNormalized();
+        var inputVector = GameInput.Instance.GetMovementVectorNormalized();
 
         Vector3 moveDir = new(inputVector.x, 0f, inputVector.y);
 

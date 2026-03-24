@@ -29,9 +29,9 @@ MonoBehaviour:
     answerE: 
   lastQotdTimestamp: 1766697765
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/problemSolvingCourse_BonusesEndingMonth.png
-    topText: The Special Bonuses on my Problem Solving course are ending this month!
-    topLink: problemsolvingcourse
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleMar26Synty.png
+    topText: Synty Bundle! Awesome Low Poly Sci-Fi Assets and Anims!
+    topLink: humblebundle
     bottomText: My 10+ Years of C# Knowledge in 1 Course!
     bottomLink: csharpcourse
   lastDynamicHeaderTimestamp: 1766697765
