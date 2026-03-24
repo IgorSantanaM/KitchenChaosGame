@@ -35,7 +35,7 @@ public class DeliveryManager : MonoBehaviour
         {
             spawnRecipeTimer = SPAWN_RECIPE_TIMER_MAX;
 
-            if (waitingRecipeSOList.Count >= WAITING_RECIPE_MAX)
+            if (KitchenGameManager.Instance.IsGamePlaying() && waitingRecipeSOList.Count >= WAITING_RECIPE_MAX)
             {
                 return;
             }
@@ -45,8 +45,6 @@ public class DeliveryManager : MonoBehaviour
         }
 
     }
-
-
     public void DeliverRecipe(PlateKitchenObject plateKitchenObjectplate)
     {
         for (int i = 0; i < waitingRecipeSOList.Count; i++)
