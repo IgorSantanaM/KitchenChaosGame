@@ -1,5 +1,5 @@
-<Solution>
-  <Project Path="Assembly-CSharp.csproj" Id="cea197b5-7549-7919-6635-c01e9e14c92c" />
-  <Project Path="CodeMonkeyFree.csproj" Id="6638229d-5538-9bcc-63d6-e81812563df5" />
-  <Project Path="CodeMonkeyFreeEditor.csproj" Id="fd7ebd29-76b5-f6a4-66e7-e399b73c2212" />
+﻿<Solution>
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="CodeMonkeyFreeEditor.csproj" />
+  <Project Path="CodeMonkeyFree.csproj" />
 </Solution>
