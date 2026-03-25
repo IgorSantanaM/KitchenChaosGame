@@ -10,6 +10,7 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 UserSettings/
+_Build/
 
 # Asset meta data should be included, but not the asset itself if the asset is in .gitignore
 # (Uncomment if you want to ignore specific asset types)
