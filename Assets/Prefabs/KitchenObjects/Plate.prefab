@@ -367,6 +367,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6150195395288295638}
   - component: {fileID: -999158483695527808}
+  - component: {fileID: 6524742937725881423}
+  - component: {fileID: -2070829666359619824}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -412,6 +414,34 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7da23c12c36a224a85211514774dbb8, type: 2}
   - {fileID: 11400000, guid: 71b73f3c5ae05dd4689da43a08937563, type: 2}
   - {fileID: 11400000, guid: 36d03c4fb86cb4a4fb7de1e9818920e6, type: 2}
+--- !u!114 &6524742937725881423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8188971289476042817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &-2070829666359619824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8188971289476042817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4497ba20a7f5fc478dc7d7aa1a7aa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowTransform
 --- !u!1001 &7904011142619016162
 PrefabInstance:
   m_ObjectHideFlags: 0
