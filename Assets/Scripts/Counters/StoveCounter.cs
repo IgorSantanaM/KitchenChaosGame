@@ -50,7 +50,7 @@ public class StoveCounter : BaseCounter, IHasProgress
     {
         OnStateChanged?.Invoke(currentState.Value);
 
-        if(currentState.Value == State.Burned || currentState.Value == State.Idle)
+        if (currentState.Value == State.Burned || currentState.Value == State.Idle)
         {
             OnProgressChanged.Invoke(0f);
         }
@@ -89,7 +89,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
 
-                        currentState.Value= State.Burned;
+                        currentState.Value = State.Burned;
                     }
                     break;
                 case State.Burned:
@@ -127,7 +127,7 @@ public class StoveCounter : BaseCounter, IHasProgress
                 if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
-                        GetKitchenObject().DestroySelf();
+                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
                     SetStateIdleServerRpc();
                 }
             }
@@ -136,11 +136,10 @@ public class StoveCounter : BaseCounter, IHasProgress
     [ServerRpc(RequireOwnership = false)]
     private void SetStateIdleServerRpc()
     {
-                    currentState.Value = State.Idle;
-
+        currentState.Value = State.Idle;
     }
-    [ServerRpc(RequireOwnership = false)]
 
+    [ServerRpc(RequireOwnership = false)]
     private void InteractLogicPlaceObjectOnCounterServerRpc(int kitchenObjectSOIndex)
     {
         fryingTimer.Value = 0f;
